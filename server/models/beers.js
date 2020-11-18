@@ -48,8 +48,12 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  beer.associate = model => {
+  beer.associate = (model) => {
     beer.belongsToMany(model.User, { through: 'UserBeers' });
+  };
+
+  beer.associate = (model) => {
+    beer.belongsToMany(model.Reviews, { through: 'BeerReviews' });
   };
   return beer;
 };

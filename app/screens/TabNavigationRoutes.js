@@ -2,17 +2,17 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-
-//import all screens for tab nav
 import HomeScreen from './HomeScreen';
 import BottleshopScreen from './BottleshopScreen';
 import MyReviewsScreen from './MyReviewsScreen';
 import ProfileScreen from './ProfileScreen';
+import BeerDetailsScreen from './BeerDetailsScreen';
+import ReviewDetailsScreen from './ReviewDetailsScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function homeScreenStack({ navigation }) {
+function homeScreenStack(props) {
   return (
     <Stack.Navigator initialRouteName="HomeScreen">
       <Stack.Screen
@@ -20,13 +20,45 @@ function homeScreenStack({ navigation }) {
         component={HomeScreen}
         options={{
           title: 'Home',
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="BeerDetailsScreen"
+        component={BeerDetailsScreen}
+        options={{
+          title: 'Beer Details',
         }}
       />
     </Stack.Navigator>
   );
 }
 
-function TabNavigationRoutes(props) {
+function reviewScreenStack(props) {
+  return (
+    <Stack.Navigator initialRouteName="MyReviewsScreen">
+      <Stack.Screen
+        name="MyReviewsScreen"
+        component={MyReviewsScreen}
+        options={{
+          title: 'My Reviews',
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ReviewDetailsScreen"
+        component={ReviewDetailsScreen}
+        options={{
+          title: 'Review Details',
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+//bottleshop stack
+//profile stack
+
+function TabNavigationRoutes({ props, navigation }) {
   return (
     <Tab.Navigator
       initialRouteName="homeScreenStack"
@@ -55,8 +87,8 @@ function TabNavigationRoutes(props) {
         }}
       />
       <Tab.Screen
-        name="MyReviewsScreen"
-        component={MyReviewsScreen}
+        name="reviewScreenStack"
+        component={reviewScreenStack}
         options={{
           tabBarLabel: 'My Reviews',
           tabBarIcon: ({ color, size }) => (

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
   });
 
-  user.associate = model => {
+  user.associate = (model) => {
     user.belongsToMany(model.Beer, { through: 'UserBeers' });
   };
   return user;

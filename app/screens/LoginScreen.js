@@ -1,10 +1,17 @@
 import React from 'react';
-import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import {
+  Image,
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
+import { Input } from 'react-native-elements';
 
 function LoginScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>
         <Image
           style={styles.logo}
@@ -12,8 +19,8 @@ function LoginScreen({ navigation }) {
         />
         <Text style={styles.title}>Beer Bulletins</Text>
       </View>
-      <TextInput style={styles.input} placeholder="Username" />
-      <TextInput
+      <Input style={styles.input} placeholder="Username" />
+      <Input
         style={styles.input}
         placeholder="Password"
         secureTextEntry={true}
@@ -30,35 +37,32 @@ function LoginScreen({ navigation }) {
       >
         New Here ? Register
       </Text>
-    </View>
+    </SafeAreaView>
   );
 }
-
-// use fetch to fetch pc's ip address fetch('http://yourPCip:3000/users')
-//       .then(response => response.json())
-//       .then(users => console.warn(users))
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#17BEBB',
   },
+  title: {
+    textAlign: 'center',
+    color: '#2F4858',
+  },
   logoContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 20,
   },
   logo: {
     width: 100,
     height: 100,
   },
-  title: {
-    color: '#F6AE2D',
-  },
   input: {
-    margin: 15,
-    height: 40,
-    borderColor: '#2F4858',
-    borderWidth: 1,
+    padding: 10,
+    margin: 20,
+    height: 10,
     backgroundColor: '#DEFBFA',
   },
   submitButton: {
@@ -70,6 +74,10 @@ const styles = StyleSheet.create({
   submitButtonText: {
     color: 'white',
     textAlign: 'center',
+  },
+  registerTextStyle: {
+    textAlign: 'center',
+    color: '#2F4858',
   },
 });
 
