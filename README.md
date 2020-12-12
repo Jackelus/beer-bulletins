@@ -14,6 +14,3 @@
 * React Native
 * Node.js w/ Express
 * Postgres w/ Sequilize
-
-# Contributors 
-
