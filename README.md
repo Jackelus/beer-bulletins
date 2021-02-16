@@ -1,4 +1,4 @@
-# beer-bulletins
+# beer-bulletins (under construction)
 
 <p><b>A mobile app to search and review craft beers 🍻</b></p>
 
